@@ -44,6 +44,7 @@ function clearTodo(e) {
 
 function checkboxDone(e) {
   const target = e.target; // span
+
   const todos = JSON.parse(localStorage.getItem("todos"));
   const liEl = target.parentElement.getElementsByTagName("div")[0];
   const todoName = liEl.textContent;
@@ -54,9 +55,9 @@ function checkboxDone(e) {
       todo.done = !todo.done; // is true do false, is false do true
       if (todo.done == true) {
         // and if is true then change classname
-        liEl.className = "checked";
+        liEl.parentElement.className = "checked";
       } else {
-        liEl.className = "";
+        liEl.parentElement.className = "";
       }
     }
     localStorage.setItem("todos", JSON.stringify(todos));

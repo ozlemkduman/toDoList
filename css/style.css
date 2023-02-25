@@ -42,9 +42,9 @@ ul li:hover {
 }
 .checked {
 
-  background: #276678;
-  color: #fff;
-  text-decoration: line-through;
+  background: #276678!important; 
+  color: #fff!important;
+  text-decoration: line-through!important;
 }
 
 
