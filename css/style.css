@@ -10,7 +10,7 @@ ul {
 ul li {
   cursor: pointer;
   position: relative;
-  padding: 12px 8px 12px 40px;
+  padding: 12px 8px 12px 5px;
   background: #eee;
   font-size: 18px;
   transition: 0.2s;
@@ -20,6 +20,14 @@ ul li {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  display: flex;
+  align-items: center;
+}
+
+ul li input {
+
+  width: 50px;
 }
 
 ul li:nth-child(odd) {
@@ -30,24 +38,14 @@ ul li:hover {
   background: #ddd;
 }
 
-ul li.checked {
+.checked {
+
   background: #276678;
   color: #fff;
   text-decoration: line-through;
 }
 
-ul li.checked::before {
-  content: "";
-  position: absolute;
-  border-color: #fff;
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  top: 10px;
-  left: 16px;
-  transform: rotate(45deg);
-  height: 15px;
-  width: 7px;
-}
+
 
 .close {
   position: absolute;
@@ -59,7 +57,6 @@ ul li.checked::before {
 .close:hover {
   background-color: #f78501;
   color: white;
-
 }
 
 .header {
@@ -104,4 +101,8 @@ input {
 
 .button:hover {
   background-color: #bbb;
+}
+
+.error {
+  color: red;
 }
