@@ -44,20 +44,19 @@ function clearTodo(e) {
 
 function checkboxDone(e) {
   const target = e.target; // span
-
   const todos = JSON.parse(localStorage.getItem("todos"));
-  const liEl = target.parentElement.parentElement;
-  const nameEl = liEl.getElementsByTagName("div")[0];
-  const todoName = nameEl.textContent;
-
+  const liEl = target.parentElement.getElementsByTagName("div")[0];
+  const todoName = liEl.textContent;
+  console.log(todoName);
   todos.forEach((todo) => {
-    if (todoName == todo.name) {
+    console.log(liEl);
+    if (todoName === todo.name) {
       todo.done = !todo.done; // is true do false, is false do true
       if (todo.done == true) {
         // and if is true then change classname
-        nameEl.className = "checked";
+        liEl.className = "checked";
       } else {
-        nameEl.className = "";
+        liEl.className = "";
       }
     }
     localStorage.setItem("todos", JSON.stringify(todos));
