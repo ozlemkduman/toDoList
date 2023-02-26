@@ -12,6 +12,8 @@ function main() {
       createTodoEl(toDo);
     });
   }
+  
+  
 }
 
 main();
@@ -48,9 +50,7 @@ function checkboxDone(e) {
   const todos = JSON.parse(localStorage.getItem("todos"));
   const liEl = target.parentElement.getElementsByTagName("div")[0];
   const todoName = liEl.textContent;
-  console.log(todoName);
   todos.forEach((todo) => {
-    console.log(liEl);
     if (todoName === todo.name) {
       todo.done = !todo.done; // is true do false, is false do true
       if (todo.done == true) {
@@ -61,7 +61,6 @@ function checkboxDone(e) {
       }
     }
     localStorage.setItem("todos", JSON.stringify(todos));
-    //SAYFA YENİLENDİĞİNDE CHECKED CLASSI DEVREYE GİRMİYO !?
   });
 }
 
@@ -89,7 +88,10 @@ function createTodoEl(todo) {
   checkboxEl.type = "checkbox";
   checkboxEl.checked = todo.done;
   const liEl = document.createElement("li");
+  
+  let todos = JSON.parse(localStorage.getItem("todos"));
 
+  
   checkboxEl.addEventListener("click", checkboxDone);
   // TODO done
 
@@ -98,6 +100,18 @@ function createTodoEl(todo) {
   deleteParent.append(deleteButton);
   liEl.append(deleteParent);
   list.append(liEl);
+
+
+  todos.forEach(td=>{
+    console.log(td.done);
+    const liText= liEl.getElementsByTagName("div")[0].textContent
+    if(td.done==true){
+      // o td.name ile aynı texte sahip olan li'nin clasını "checked" yap
+      if(td.name===liText){
+        liEl.className="checked"
+      }
+    }
+  })
 }
 
 function deleteLocalTodoByName(todoName) {
