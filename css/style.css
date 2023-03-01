@@ -37,13 +37,11 @@ ul li:nth-child(odd) {
 ul li:hover {
   background: #ddd;
 }
-.noChecked{
-  
-}
+
 .checked {
 
-  background: #276678!important; 
-  color: #fff!important;
+  background: #4d4b4b!important; 
+  color: #ffffff!important;
   text-decoration: line-through!important;
 }
 
@@ -57,12 +55,12 @@ ul li:hover {
 }
 
 .close:hover {
-  background-color: #f78501;
+  background-color: #fc4437;
   color: white;
 }
 
 .header {
-  background-color: #f78501;
+  background-color: #fc4437;
   padding: 30px 40px;
   color: white;
   text-align: center;
@@ -106,5 +104,5 @@ input {
 }
 
 .error {
-  color: red;
+  color: rgb(255, 0, 0);
 }
