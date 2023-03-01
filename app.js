@@ -24,7 +24,14 @@ taskInput.addEventListener("keydown", sendWithEnter);
 
 function newElement() {
   const todos = JSON.parse(localStorage.getItem("todos"));
-  const todoName = taskInput.value;
+  let todoName = taskInput.value;
+  for (let i = 0; i < todos.length; i++) {
+    if(todos[i].name==taskInput.value){
+      showToastMessage("Already same task exists ", true);
+      taskInput.value = "";
+      return
+    }
+  }
   if (taskInput.value.trim() == "") {
     showToastMessage("Cannot add with empty string", true);
   } else {
@@ -35,15 +42,7 @@ function newElement() {
     taskInput.value = "";
     showToastMessage("Todo item is added", false);
   }
-
-  for (let i = 0; i < todos.length; i++) {
-    if(todos[i].name==todoName){
-      console.log("var");
-    }else{
-      console.log("yok");
-    }
-    
-  }
+  
 }
 
 function clearTodo(e) {
@@ -174,5 +173,5 @@ function showToastMessage(message, isError) {
     liveToastEl.classList.remove("show");
     liveToastEl.classList.add("hide");
     el.remove();
-  }, 1000);
+  }, 2000);
 }
